@@ -43,7 +43,10 @@
 
 ![](https://github.com/LEEzanhui/LEE-homework/blob/gh-pages/images/2.gif?raw=true)
 
-## 6 设置一个结局，虽然没有下一关
-## 7 成果展示
+## 6 设置碰到怪物后的惩罚
+如event sheet所示，当碰到怪物时，会进入约十五秒的mirrored(镜像)状态，且进入约一秒的无视操作，以配合“晕”的效果
+
+## 7 设置一个结局，虽然没有下一关
+## 8 成果展示
 
 ![](https://github.com/LEEzanhui/LEE-homework/blob/gh-pages/images/3.gif?raw=true)
