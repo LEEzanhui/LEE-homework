@@ -94,3 +94,5 @@ motor_mod(time)
 water_mod(out, volume)
 halt(returncode)
 ```
+
+在上面，我通过不断分解问题，将复杂的洗衣机程序分割成小程序，即是自顶向下、逐步求精的编程方法。这种方法给我们的学习提供思考的方向与方法  
