@@ -82,6 +82,7 @@ int main(){
 18  JMP 4
 20  HLT
 ```
+![](https://github.com/LEEzanhui/LEE-homework/blob/gh-pages/images/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80.PNG?raw=true)
 ### 3 简单总结高级语言与机器语言的区别与联系
 高级语言不考虑指令、数据的具体地址，抽象化了程序，需要通过编译才能运行；机器语言详细控制了指令和存储数据的地址，具体显示了CPU的每一步动作。  
 高级语言与低级语言均体现了程序的逻辑，都是一种可读的程序表达方式。  
