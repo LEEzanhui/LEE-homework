@@ -69,7 +69,7 @@ int main(){
 			printf("你头这么铁?\nGame over!!!");
 			return 0;
 		}
-		else if(map[snakeHeadX][snakeHeadY] == '$'){
+		else if(map[snakeHeadX][snakeHeadY] == '$'){    //吃食物，蛇身增长
 			snakeBodyX[snakeBodyLength] = midX;
 			snakeBodyY[snakeBodyLength] = midY;
 			snakeBodyLength++;
