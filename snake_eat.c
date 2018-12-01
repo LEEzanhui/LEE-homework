@@ -2,8 +2,9 @@
 #include<stdlib.h>
 #include<time.h> 
 
-void Body(int *snakeBodyX, int *snakeBodyY);	//在地图中描绘蛇身
 void printMap(int snakeHeadX, int snakeHeadY);	//打印地图 
+void Body(int *snakeBodyX, int *snakeBodyY);	//在地图中描绘蛇身 
+void spawnFood(void);	//随机食物 
 
 char map[12][13] = {	//编辑地图 
 	"************",
@@ -20,12 +21,18 @@ char map[12][13] = {	//编辑地图
 	"************", 
 };
 
+int foodX, foodY; 
+int snakeBodyLength = 5;	//初始长度为5 
+int noFood = 1;		//初始无食物 
+
 int main(){
 	char control;
-	int	snakeHeadX = 1, snakeHeadY = 6, snakeBodyLength = 5;
-	int snakeBodyX[snakeBodyLength], snakeBodyY[snakeBodyLength];
+	int	snakeHeadX = 1, snakeHeadY = 6;		//确定初始蛇头位置 
+	int snakeBodyX[100], snakeBodyY[100];
 	int i, selfEat;
 	int midX, midY;
+	
+	srand( time(NULL) );	//初始化随机数种子,利用计算机时间 
 	
 	for(i = 0; i<snakeBodyLength; i++){		//确定初始蛇身位置 
 		snakeBodyX[i] = 1;
@@ -61,7 +68,18 @@ int main(){
 			system("cls");
 			printf("你头这么铁?\nGame over!!!");
 			return 0;
-		} 
+		}
+		else if(map[snakeHeadX][snakeHeadY] == '$'){
+			snakeBodyX[snakeBodyLength] = midX;
+			snakeBodyY[snakeBodyLength] = midY;
+			snakeBodyLength++;
+			
+			noFood = 1;
+			
+			Body(snakeBodyX, snakeBodyY);
+			
+			printMap(snakeHeadX, snakeHeadY);
+		}
 		else{
 			
 			for(i = 0; i<snakeBodyLength-1; ++i){	//使蛇身随蛇头移动 
@@ -101,7 +119,11 @@ void printMap(int snakeHeadX, int snakeHeadY){
 	system("cls");	//清屏 
 	map[snakeHeadX][snakeHeadY] = 'H';	//蛇头 
 	
-	
+	if(noFood == 1){	//如果地图上无食物，则生成食物 
+		spawnFood();
+		noFood = 0; 
+	}
+
 	for(i = 0; i<12 ; ++i){		//打印地图 
 		printf("%s\n", map[i]);
 	}
@@ -114,4 +136,16 @@ void Body(int *snakeBodyX, int *snakeBodyY){
 	for(i = 0; i<snakeBodyLength; i++){
 		map[ snakeBodyX[i] ][ snakeBodyY[i] ] = 'X';	//描绘蛇身位置 
 	}
+}
+
+void spawnFood(void){	//rand()生成的数是很大的 
+	foodX = rand() % 10 + 1;
+	foodY = rand() % 10 + 1;
+	
+	while(map[foodX][foodY] != ' '){	//防止食物与各种东西重叠 
+		foodX = rand() % 10 + 1;
+		foodY = rand() % 10 + 1;
+	}
+	
+	map[foodX][foodY] = '$';	//食物 
 }
