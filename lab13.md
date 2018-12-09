@@ -88,3 +88,8 @@ Linux不同于window用system("cls")来清屏，相反，它用printf("\033[2J")
 [Linux下可运行的代码](snake-kbhit.c)  
 
 ## 智能蛇
+[window下可运行代码](snake-ai.c)  
+蛇可自己动，可吃食物，不吃自己  
+<div style='display: none'>
+然而，它会撞墙，没办法，它就是头铁（其实是我懒得写了）
+</div>
