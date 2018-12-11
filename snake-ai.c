@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h> 
-#include<windows.h>		//用于Sleep（） 
+//#include<windows.h>		//用于Sleep（） 
+#include <unistd.h>
 
 void printMap(int snakeHeadX, int snakeHeadY);	//打印地图 
 void Body(int *snakeBodyX, int *snakeBodyY);	//在地图中描绘蛇身 
@@ -132,7 +133,8 @@ int main(){
 			return 0;
 		}
 		
-		Sleep(250); 	//运行停止  毫秒，方便观察 
+//		Sleep(250); 	//运行停止  毫秒，方便观察
+		sleep(250);
 	}
 	
 	return 0;
